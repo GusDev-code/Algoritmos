@@ -1,0 +1,52 @@
+
+--CODIGO DEL BOTON--
+        int[] datos2 = new int[100000];
+				
+				for(int i = 0; i < td; i++) datos2[i] = datos[i+1];
+				
+				hi = new GregorianCalendar();
+				
+				QuickSort(datos2,0,td - 1);
+				
+				for(int i = 0; i < datos2.length; i++) {
+					
+					if(datos2[i] != 0) v2.add(datos2[i]);
+					
+				}
+				
+				L2.setListData(v2);
+				
+				hf = new GregorianCalendar();
+				
+				Calcular_Tiempo(hi,hf);
+
+
+
+
+--METODO--
+public static void QuickSort(int A[], int izq, int der) {
+
+		  int pivote=A[izq]; 
+		  int i=izq;         
+		  int j=der;        
+		  int aux;
+		 
+		  while(i < j){                                                            
+		     while(A[i] <= pivote && i < j) i++; 
+		     while(A[j] > pivote) j--;           
+		     if (i < j) {                                            
+		         aux= A[i];                      
+		         A[i]=A[j];
+		         A[j]=aux;
+		     }
+		   }
+		   
+		   A[izq]=A[j];                                        
+		   A[j]=pivote;      
+		   
+		   if(izq < j-1)
+		      QuickSort(A,izq,j-1);          
+		   if(j+1 < der)
+		      QuickSort(A,j+1,der);         
+		   
+		}
